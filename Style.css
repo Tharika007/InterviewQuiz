@@ -1,0 +1,287 @@
+/* ***********Background************* */
+
+
+* {
+    background-color: black;
+  }
+  
+  
+/* ***********Nav bar************* */
+#container-nav{ 
+    padding-left: 40%;
+}
+
+#navbuttons {
+    font-size: 50px;
+}
+
+/* ***********Welcome Page************* */
+
+.welcometext {
+    margin-top: 4%;
+    float: right;
+    font-size: 120px;
+    font-weight: bolder;
+    padding-right: 17%;
+    color: rgb(232, 238, 145);
+}
+
+.SecondText {
+    position:absolute;
+    top: 38%;
+    right: 17%;
+    float: right;
+    font-size: 30px;
+    font-weight: bold; 
+    text-align: right;  
+    color: rgb(232, 238, 145);   
+}
+
+.TabImage {  
+   padding-top: 18%;
+   float: left;  
+   margin-left: 8%;
+}
+
+.welcomelogo {
+    padding-top: 23%;
+    margin-left: 61%; 
+}
+
+/* ***********Rules Page************* */
+#appitudetest{
+    text-align: center;
+    padding-top: 8%;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: arial;
+    color: rgb(232, 238, 145);
+}
+
+.appitude-card {
+    color: white;
+}
+
+#apitudeNextButton {  
+    background-color: #202020; 
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 7px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    float: right;
+    margin-right: 20%;
+    
+}
+
+.tabnlogo {
+    float: left;
+    width: 60%;
+}
+.tabimage {
+    margin-top: 15%;
+    margin-left: 5%;
+    float: left;
+    
+}
+.Instructions-card {
+    float: right;
+    color: white;
+    font-family: Arial;
+    font-size: 16px;
+    margin-right: 10%;
+    margin-top: 5%;
+   
+}
+
+.jmwlogo {
+   float: left;
+   margin-left: 18%;
+   margin-top: 7%;
+   
+}
+
+/* ***********Thankyou Page************* */
+
+#thankText {
+    text-align: center;
+    font-family: arial;
+    padding-top: 2%;
+    font-size: 90px;
+    font-weight: bolder;
+    color: rgb(226, 212, 223);
+}
+
+.thankyoujmwlogo {
+   margin-top: 0%;
+   float: right;
+   margin-right: 8%;
+}
+
+.thankyouTabImage {
+    float: left;
+}
+
+#texthrm {
+    float: right;
+    text-align: center;
+    font-family: arial;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(226, 212, 223);
+} 
+
+/* ***********Modal************* */
+
+.modal-body {
+    background-color: rgba(0, 0, 0, 0.877);  
+}
+
+.modal-footer {
+    background-color: rgba(0, 0, 0, 0.877);
+}
+
+#userName {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;  
+    width: 80%; 
+    border-radius: 30px;
+}
+
+#Email {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;  
+    margin-bottom: 10%;
+    width: 80%; 
+    border-radius: 30px;
+}
+
+.modalclosebutton {
+    background-color: #000000; 
+    opacity: 0.5; 
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 7px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    float: right;
+    margin-right: 20%;
+}
+
+.modalnextbutton {
+    background-color: #000000; 
+    opacity: 0.5;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 7px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    float: right;
+    margin-right: 20%;
+    
+}
+
+/* Question Page */
+
+.question-container{
+    float:left;
+    width: 500px;
+    margin-left: 15%;
+    margin-top: 3%;
+}
+
+.RemainingQuestionsContainer {
+    margin-top: 2%;
+    margin-left: 60%;   
+    border: 8px solid #000000;
+    border-radius: 10px;
+    width: 355px;
+}
+
+.QuestionsNumbuttons {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    border: none;
+    color: #000000;
+    background-color: #858788;
+    margin-top: 6%;
+    margin-left: 10%;
+
+}
+
+.QuestionsNumbuttonstype02 {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    border: none;
+    color: #000000;
+    background-color: #858788;
+    margin-top: 6%;
+    margin-left: 33%;
+    margin-bottom: 6%;
+}
+
+.QuestionNumberLabel {
+    border-radius: 50px;
+    background-color: rgb(224, 236, 168);
+    width: 50px;
+    height: 50px;
+    color: #000000;
+    margin-left: 41%;
+    margin-top: 2%;
+}
+
+.Question {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: arial;
+}
+
+.Answers {
+    font-weight: bold;
+    font-size: 15px;
+    font-family: arial;
+}
+
+#QuestionFormButtons {
+    margin-top: 15%;
+    background-color: #e4c2d3; 
+    border: none;
+    border-radius: 10px;
+    color: black;
+    padding: 7px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 17px;
+    margin-left: 20px;
+    
+}
+
+.Time {
+    margin-top: 5%;
+    margin-left: 60%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    font-family: arial;
+    font-size: 15px;
+    width: 355px;
+    height: 50px;
+    color: white;
+    padding-top: 12px;
+    padding-left: 50px;
+
+}

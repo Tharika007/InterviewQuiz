@@ -1,0 +1,145 @@
+
+/* ***********Nav bar************* */
+#container-nav{ 
+    padding-left: 40%;
+}
+
+#nav-bar{
+    background-color: #ecf5ec;
+
+}
+
+/* ***********Background************* */
+
+.body {
+    background-color: #ecf5ec;
+}
+
+* {
+   
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.question-container{
+    float:left;
+    width: 50%;
+   margin-left: 5%;
+    margin-top: 3%;
+}
+
+.RemainingQuestionsContainer {
+    margin-top: 2%;
+    margin-left: 60%;   
+    border: 8px solid #000000;
+    border-radius: 10px;
+    width: 355px;
+}
+
+.QuestionsNumbuttons {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    border: none;
+    color: #000000;
+    background-color: #858788;
+    margin-top: 6%;
+    margin-left: 10%;
+
+}
+
+.QuestionsNumbuttonstype02 {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    border: none;
+    color: #000000;
+    background-color: #858788;
+    margin-top: 6%;
+    margin-left: 33%;
+    margin-bottom: 6%;
+}
+
+.QuestionNumberLabel {
+    border-radius: 50px;
+    background-color: rgb(224, 236, 168);
+    width: 50px;
+    height: 50px;
+    color: #000000;
+    margin-left: 41%;
+    margin-top: 2%;
+}
+
+.Question {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: arial;
+}
+
+.Answers {
+    font-weight: bold;
+    font-size: 15px;
+    font-family: arial;
+}
+
+#QuestionFormButtons {
+    margin-top: 15%;
+    background-color: #e4c2d3; 
+    border: none;
+    border-radius: 10px;
+    color: black;
+    padding: 7px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 17px;
+    margin-left: 20px;
+    
+}
+
+.Time {
+    margin-top: 5%;
+    margin-left: 60%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    font-family: arial;
+    font-size: 15px;
+    width: 355px;
+    height: 50px;
+    color: white;
+    padding-top: 12px;
+    padding-left: 50px;
+
+}
+.choice-container{
+    display: flex;
+    
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    border:0.1rem solid rgba(204, 193, 193, 0.8);
+    background-color: white;
+}
+.choice-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(83, 82, 82, 0.8);
+    transform: translate(-0.1rem);
+    transition: transform 150ms;
+}
+
+.choice-prefix{
+    
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+.choice-text{
+    padding: 1rem;
+    width: 100%;
+    color: rgb(10, 10, 10);
+}
+.correct{
+    background-color: green;
+}
+.incorrect{
+    background-color: red; 
+}
