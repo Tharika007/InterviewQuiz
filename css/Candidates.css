@@ -143,10 +143,8 @@ nav .profile-details i{
   font-size: 25px;
   color: #333;
 }
-.home-section .home-content{
-  position: relative;
-  
-}
+
+
 .home-content .overview-boxes{
   display: flex;
   align-items: center;

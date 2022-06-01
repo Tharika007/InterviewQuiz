@@ -11,11 +11,11 @@
  
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/Candidates.css">
+    <link rel="stylesheet" href="./CSS/Candidates.css">
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title> HRM Details | JWA ONLINE QUESTIONNAIRE </title>
+     <title> Candidates Details | JWA ONLINE QUESTIONNAIRE  </title>
 
      <style>
          
@@ -44,15 +44,27 @@
         font-family: arial;
         }
 
-      .table {
+        .addexam {
+          display: inline-block;
+          background-color: blue; 
+          font-weight: bold;
+          border: black;
+          border-radius: 10px;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          font-size: 17px;
+          padding: 12px 25px;
+          cursor: pointer;
+        }
+
+        .table {
         width:100%;
         border:1px solid black;
         border-collapse: collapse;
         background-color: #1B1717;
         color:white;
         font-family: arial;
-       
-       
         }
 
         .home-content .btnentercandidate {
@@ -60,6 +72,11 @@
           margin-right: 50px;
           margin-bottom: 30px;
 
+        }
+        
+        a:link {
+        text-decoration: none;
+        color: white;
         }
        
         #entercandidate {  
@@ -78,22 +95,32 @@
         .editbutton {
           background-color: green; 
           font-weight: bold;
+          border: black;
           border-radius: 10px;
           color: white;
           text-align: center;
           text-decoration: none;
           font-size: 17px;
           padding: 12px 25px;
-          cursor: pointer;  
-        }
-
-        a:link {
-        text-decoration: none;
-        color: white;
+          cursor: pointer;
         }
 
         .deletebutton {
           background-color: red; 
+          font-weight: bold;
+          border: black;
+          border-radius: 10px;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          font-size: 17px;
+          padding: 12px 25px;
+          cursor: pointer;
+        }
+
+        .sentemail {
+          display: inline-block;
+          background-color: yellow; 
           font-weight: bold;
           border: black;
           border-radius: 10px;
@@ -141,17 +168,17 @@
           </a>
         </li>
         <li>
-          <a href="./Addcandidate.php">
+          <a href="./AdminAddcandidate.php">
             <i class='bx bx-user' ></i>
             <span class="links_name"> Add Candidates</span>
           </a>
         </li>
         <li>
-          <a href="./seecandidatedetails.php">
+          <a href="./AdminCandidatesDetails.php">
             <i class='bx bx-list-ol' ></i>
             <span class="links_name"> See Candidates</span>
           </a>
-      </li>
+</li>
         <li>
           <a href="./AddHR.php">
             <i class='bx bx-plus' ></i>
@@ -164,15 +191,22 @@
             <span class="links_name"> See HRM Details </span>
           </a>
         </li>
-        <li class="log_out">
+            <!-- <li class="log_out">
             <a href="#">
               <i class='bx bx-log-out'></i>
               <form action="./AdminLogin.php" method="POST">
                 <button type="submit" class="links_name" name="logoutbutton"  onclick="logoutalert()">Log out</button>
               </form>
-             
-              </a>
-          </li>
+              
+              </a>-->
+              <li class="log_out">  
+          <a href="logout1.php?q=dashboard.php">
+            <i class='bx bx-log-out' ></i>
+            <span class="links_name"> Logout </span>
+      
+          </a>
+        </li>  
+        </li>
       </ul>
   </div>
 
@@ -180,46 +214,66 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-         <span class="dashboard"> HRM Details </span>
+         <span class="dashboard"> Candidates Details </span>
       </div>
    
       <div class="profile-details">
         <i class='bx bx-user' ></i>
         <span class="admin_name"> Admin </span>
+
       </div>
     </nav>
- <br> <br> <br> <br>
-
+<br> <br> <br> <br> <br>
     <div class="home-content">
  
-     <table class="table">
+        <table class="table">
        
             <tr>
                 <th> ID </th>
-                <th> Name </th>
-                <th> Email </th>
+                <th> PIN </th>
+                <th> Candidate Name </th>
+                <th> Candidate Email </th>
+                <th> Candidate Phone </th>
+                <th> Laguage </th>
+                <th> Position </th>
+                <th> Interview Date </th>
+                <th> Interview Time </th>
                 <th> Edit </th>
                 <th> Delete </th>
+                <th> Add to Exam </th>
+                <th> Sent Email </th>
             </tr>
         
         <?php
-        $sql = "SELECT * FROM `admin`";
+        $sql = "SELECT * FROM `candidatedetails`";
         $result = mysqli_query($conn, $sql);
         if($result) {    
         while($row = mysqli_fetch_assoc($result)) {
-              $id= $row['admin_id'];
-              $hrmname= $row['hrmname'];
-              $hrmemail= $row['email'];
-             
+              $id= $row['id'];
+              $pin= $row['pin'];
+              $candidatename= $row['candidatename'];
+              $candidatemail= $row['candidatemail'];
+              $candidatephone= $row['candidatephone'];
+              $language= $row['languages'];
+              $position= $row['position'];
+              $interviewdate= $row['interviewdate'];
+              $interviewtime= $row['interviewtime'];
       
          echo '<tr>
                 <td> '.$id.' </td>
-                <td> '.$hrmname.' </td>
-                <td> '.$hrmemail.' </td>
-                
-                <td> <button class="editbutton"> <a href ="./updatehrm.php?updateid='.$id.'">  Edit </a></button>
-                <td> <button class="deletebutton"> <a href ="./deletehrm.php?deleteid='.$id.' "> Delete </a></button>
-                
+                <td> '.$pin.' </td>
+                <td> '.$candidatename.' </td>
+                <td> '.$candidatemail.' </td>
+                <td> '.$candidatephone.' </td>
+                <td> '.$language.' </td>
+                <td> '.$position.' </td>
+                <td> '.$interviewdate.' </td>
+                <td> '.$interviewtime.' </td>
+                <td> <button class="editbutton"> <a href ="./Updatecandidate.php?updateid='.$id.'">  Edit </a></button>
+                <td> <button class="deletebutton"> <a href ="./Deletecandidate.php?deleteid='.$id.' "> Delete </a></button>
+                <td> <button class="addexam"> <a href ="./AdminAddExam.php?examid='.$id.' "> Add&nbsp;to&nbsp;Exam </a></button>
+                <td> <button class="sentemail" id="sendemail"> <a href ="./mail.php?mailid='.$id.' "> Send&nbsp;Email </a></button>
+
             </tr> 
             ';     
     
@@ -230,6 +284,7 @@
           {
               echo "<script>
               alert('No Record Found.');
+              window.location.href='Candidates.php';
               </script>";
           }
 
@@ -239,9 +294,20 @@
           
         </table>
         </div>
-      
       </div>
-        </section>
+
+      <script type="text/javascript">
+      document.getElementById("entercandidate").onclick = function () {
+      location.href = "./dashboard.php?q=1";
+      
+      };
+      </script>
+
+      <script type="text/javascript">
+      document.getElementById("editbutton").onclick = function () {
+      location.href = "./Updatecandidate.php";
+      };
+      <script>
 
       <script>
       let sidebar = document.querySelector(".sidebar");

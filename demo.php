@@ -8,6 +8,7 @@ include 'DBConnection.php';
 {
     $hrmname = $_POST['hrmname'];
     $hrmemail = $_POST['hrmemail'];  
+    $hrmpassword = $_POST['hrmpassword'];
     $hashed_password = password_hash($hrmpassword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO admin (`email`, `hrmname`, `password`) VALUES ('$hrmname', '$hrmemail', '$hashed_password')";
@@ -20,17 +21,7 @@ include 'DBConnection.php';
     $result2 = mysqli_query($con,"SELECT email FROM admin WHERE email = '$email' and password = '$verify'") or die('Error');
 
 
-    if($result) 
-    {
-      echo '<script> alert("Data Saved"); </script>';
-      header('Location: SeeHRM.php');
-    }
-
-    else {
-     echo '<script> alert ("Data not Saved"); </script>';
-     header('Location: AddHR.php');
-
-    }
+    echo $result2;
 }
     CloseCon($conn);
 

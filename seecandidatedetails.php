@@ -15,7 +15,7 @@
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title> Candidates Details </title>
+     <title> Candidates Details | JWA ONLINE QUESTIONNAIRE  </title>
 
      <style>
          
@@ -42,6 +42,20 @@
         border-collapse: collapse;
         font-size: 1.2rem;
         font-family: arial;
+        }
+
+        .addexam {
+          display: inline-block;
+          background-color: blue; 
+          font-weight: bold;
+          border: black;
+          border-radius: 10px;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          font-size: 17px;
+          padding: 12px 25px;
+          cursor: pointer;
         }
 
         .table {
@@ -104,6 +118,20 @@
           cursor: pointer;
         }
 
+        .sentemail {
+          display: inline-block;
+          background-color: yellow; 
+          font-weight: bold;
+          border: black;
+          border-radius: 10px;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          font-size: 17px;
+          padding: 12px 25px;
+          cursor: pointer;
+        }
+
      </style>
 </head>
 
@@ -114,9 +142,9 @@
       <span class="logo_name"> JWA </span>
     </div>
     
-      <ul class="nav-links">
-      <li>
-          <a href="./CommonDashboard.php" class="active">
+    <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -135,30 +163,30 @@
         </li>
         <li>
           <a href="./seecandidatedetails.php">
-            <i class='bx bx-book' ></i>
+            <i class='bx bx-list-ol' ></i>
             <span class="links_name"> See Candidates</span>
           </a>
         </li>
         <li>
           <a href="./welcome.php">
-            <i class='bx bx-user' ></i>
+            <i class='bx bx-category-alt' ></i>
             <span class="links_name"> Quiz </span>      
           </a>
         </li>
+        
         <li>
           <a href="dashboard.php?q=2">
-            <i class='bx bx-coin-stack' ></i>
+            <i class='bx bx-line-chart' ></i>
             <span class="links_name"> Scores </span>
           </a>
         </li>
-        <li>
-
-        <li class="log_out">
-            <a href="./logout.php">
-              <i class='bx bx-log-out'></i>
-              <span class="links_name">Logout</span>
-            </a>
-          </li>
+         
+        <li class="log_out">  
+          <a href="logout1.php?q=dashboard.php">
+            <i class='bx bx-log-out' ></i>
+            <span class="links_name"> Logout </span>
+          </a>
+        </li>        
       </ul>
   </div>
 
@@ -171,16 +199,12 @@
    
       <div class="profile-details">
         <i class='bx bx-user' ></i>
-        <span class="admin_name"> Admin </span>
+        <span class="admin_name"> HRM </span>
 
       </div>
     </nav>
-
+<br> <br> <br> <br> <br>
     <div class="home-content">
-      
-        <div class="btnentercandidate">
-          <button type="button" id="entercandidate"> Add Candidate to the exam </button>
-        </div>
  
         <table class="table">
        
@@ -196,6 +220,8 @@
                 <th> Interview Time </th>
                 <th> Edit </th>
                 <th> Delete </th>
+                <th> Add to Exam </th>
+                <th> Sent Email </th>
             </tr>
         
         <?php
@@ -225,7 +251,9 @@
                 <td> '.$interviewtime.' </td>
                 <td> <button class="editbutton"> <a href ="./Updatecandidate.php?updateid='.$id.'">  Edit </a></button>
                 <td> <button class="deletebutton"> <a href ="./Deletecandidate.php?deleteid='.$id.' "> Delete </a></button>
-                
+                <td> <button class="addexam"> <a href ="./AddExam.php?examid='.$id.' "> Add&nbsp;to&nbsp;Exam </a></button>
+                <td> <button class="sentemail" id="sendemail"> <a href ="./mail.php?mailid='.$id.' "> Send&nbsp;Email </a></button>
+
             </tr> 
             ';     
     

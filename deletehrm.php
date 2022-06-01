@@ -7,10 +7,11 @@
     if(isset($_GET['deleteid'])) {
         $id=$_GET['deleteid'];
 
-        $sql = "delete from `hrm` where id=$id";
+        $sql = "delete from `admin` where admin_id=$id";
         $result = mysqli_query($conn,$sql);
         if($result) {
             echo "<script>
+            alert('Successfully Removed.');
               window.location.href='./SeeHRM.php';
               </script>";
         }

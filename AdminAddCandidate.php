@@ -1,26 +1,22 @@
 <?php
 
+function generateRandomPin($length = 25) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+$myRandomString = generateRandomPin(10);
+
 include 'DBConnection.php';
 
     $conn = OpenCon();
 
-    $id = $_GET['updateid'];
-    $sql = "select * from `candidatedetails` where id=$id";
-    
-    $result = mysqli_query($conn, $sql);
-
-    $row= mysqli_fetch_assoc($result);
-
-    $pin= $row['pin'];
-    $candidatename= $row['candidatename'];
-    $candidatemail= $row['candidatemail'];
-    $candidatephone= $row['candidatephone'];
-    $language= $row['languages'];
-    $position= $row['position'];
-    $interviewdate= $row['interviewdate'];
-    $interviewtime= $row['interviewtime'];
-
-    if(isset($_POST['updatecandidate'])) 
+    if(isset($_POST['addcandidate']))
 
 {
     $pin = $_POST['pin'];
@@ -32,9 +28,8 @@ include 'DBConnection.php';
     $interviewdate = $_POST['interviewdate'];
     $interviewtime = $_POST['interviewtime'];
 
-    $sql = "UPDATE candidatedetails SET pin ='$pin', candidatename='$candidatename', candidatemail = '$candidatemail',
-    candidatephone = '$candidatephone', position = '$position', languages ='$language', interviewdate = '$interviewdate',
-    interviewtime = '$interviewtime' where id = '$id' ";
+    $sql = "INSERT INTO candidatedetails (`pin`, `candidatename`, `candidatemail`, `candidatephone`, `position`, `languages`,`interviewdate`, `interviewtime`) VALUES ('$pin', '$candidatename', '$candidatemail', 
+    '$candidatephone', '$position', '$language', '$interviewdate', '$interviewtime')";
 
     $result = mysqli_query($conn, $sql);
 
@@ -47,8 +42,41 @@ include 'DBConnection.php';
     else {
 
      echo '<script> alert ("Data not Saved"); </script>';
-   }
+
+    }
 }
+
+if(isset($_POST['addcandidate']))
+
+{
+    $pin = $_POST['pin'];
+    $candidatename = $_POST['candidatename'];
+    $candidatemail = $_POST['candidatemail'];
+    $interviewdate = $_POST['interviewdate'];
+    $interviewtime = $_POST['interviewtime'];
+
+    $from = 'tharika@jwareautomation.com';
+    $to = 'tharika.pramodi007@gmail.com'; 
+    $mail_subject = 'subject';
+    $email_body = "The message blah blah : <br>";
+    $email_body .= "Login Credentials {$candidatemail} password {$pin} <br>";
+    
+    $header = "From: {$from}\r\nContent-Type: text/html;";
+    
+    $send_mail_result = mail( $to, $mail_subject, $email_body, $header);
+
+    if ( $send_mail_result)
+    {
+      $status = '<P> succes </p>';
+    echo "Message Sent.";
+    }
+    else {
+      $status = '<P> not succes </p>';
+      echo "Message Not sent";
+    }
+    
+ }
+
     CloseCon($conn);
 
 ?>
@@ -70,7 +98,7 @@ include 'DBConnection.php';
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
      
-    <title> Update Candidate | JWA ONLINE QUESTIONNAIRE  </title>
+    <title> Add Candidates </title>
 
      <style>
          
@@ -120,7 +148,7 @@ include 'DBConnection.php';
           text-align: center;
         }
 
-        #updatebutton {
+        #addcandidatebutton {
           float: right;
           margin-top: 10px;
         }
@@ -134,10 +162,9 @@ include 'DBConnection.php';
       <img src="./images/JMW-White-logo.png" width="70" height="70" alt="">
       <span class="logo_name"> JWA </span>
     </div>
-    
     <ul class="nav-links">
         <li>
-          <a href="#" class="active">
+          <a href="./AdminDashboard.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -149,50 +176,71 @@ include 'DBConnection.php';
           </a>
         </li>
         <li>
-          <a href="./Addcandidate.php">
+        <a href="./welcome.php">
+            <i class='bx bx-book-alt' ></i>
+            <span class="links_name"> Quiz </span>
+          </a>
+        </li>
+        <li>
+          <a href="dashboard.php?q=2">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name"> Scores </span>
+          </a>
+        </li>
+        <li>
+          <a href="./AdminAddcandidate.php">
             <i class='bx bx-user' ></i>
             <span class="links_name"> Add Candidates</span>
           </a>
         </li>
         <li>
-          <a href="./seecandidatedetails.php">
+          <a href="./AdminCandidatesDetails.php">
             <i class='bx bx-list-ol' ></i>
             <span class="links_name"> See Candidates</span>
           </a>
-        </li>
+</li>
         <li>
-          <a href="./welcome.php">
-            <i class='bx bx-category-alt' ></i>
-            <span class="links_name"> Quiz </span>      
+          <a href="./AddHR.php">
+            <i class='bx bx-plus' ></i>
+            <span class="links_name"> Add HRM Officer </span>
           </a>
         </li>
-        
         <li>
-          <a href="dashboard.php?q=2">
-            <i class='bx bx-line-chart' ></i>
-            <span class="links_name"> Scores </span>
+          <a href="./SeeHRM.php">
+            <i class='bx bx-book' ></i>
+            <span class="links_name"> See HRM Details </span>
           </a>
         </li>
-         
-        <li class="log_out">  
+            <!-- <li class="log_out">
+            <a href="#">
+              <i class='bx bx-log-out'></i>
+              <form action="./AdminLogin.php" method="POST">
+                <button type="submit" class="links_name" name="logoutbutton"  onclick="logoutalert()">Log out</button>
+              </form>
+              
+              </a>-->
+              <li class="log_out">  
           <a href="logout1.php?q=dashboard.php">
             <i class='bx bx-log-out' ></i>
             <span class="links_name"> Logout </span>
+      
           </a>
-        </li>        
+        </li>  
+        </li>
       </ul>
+    </div>
   </div>
         
   <section class="home-section">
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-         <span class="dashboard"> Update Candidates </span>
+         <span class="dashboard"> Add Candidates </span>
       </div>
    
       <div class="profile-details">
         <i class='bx bx-user' ></i>
-        <span class="admin_name"> HRM </span>
+        <span class="admin_name"> Admin </span>
 
       </div>
     </nav>
@@ -204,26 +252,26 @@ include 'DBConnection.php';
         <form action="#" method="POST">
 
         <div class="form-group">
-          <input name="pin" id="pinfield" value="<?php echo $pin; ?>" readonly/>
+          <input name="pin" id="pinfield" value="<?php echo $myRandomString; ?>" readonly/>
         </div>
 
         <div class="form-group">
           <label for="candidateName" class="label"> Candidate's Name </label>
-          <input type="text" name="candidatename" value=<?php echo $candidatename ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">           
+          <input type="text" name="candidatename" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">           
         </div>
      
         <div class="form-group">
           <label for="candidateemail" class="label"> Candidate's Email</label>
-          <input type="email" name="candidatemail" value=<?php echo $candidatemail ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+          <input type="email" name="candidatemail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
         </div>
 
         <div class="form-group">
           <label for="candidateemail" class="label"> Candidate's Phone Number</label>
-          <input type="number" name="candidatephone" value=<?php echo $candidatephone ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number">
+          <input type="number" name="candidatephone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number">
         </div>
 
         <label class="label">  Applied Position </label>
-          <select name="position" class="form-select" value=<?php echo $position ?>>
+          <select name="position" class="form-select">
             <option value="trainee"> --Select Position-- </option>
             <option value="trainee"> Trainee Software Engineer </option>
             <option value="junior"> Junior Software Engineer </option>
@@ -233,8 +281,9 @@ include 'DBConnection.php';
         <br> 
 
         <label class="label">  Applied for </label>
-          <select name="languages" class="form-select" value=<?php echo $language ?>>
+        <select name="languages" class="form-select">
             <option value=""> --Select-- </option>
+            <option value="react"> JavaScript </option>
             <option value="react"> React </option>
             <option value="flutter"> Flutter </option>
             <option value="dart"> Dart </option>
@@ -245,22 +294,22 @@ include 'DBConnection.php';
 
         <div class="form-group">
             <label for="candidateemail" class="label"> Interview Date </label>
-            <input type="date" name="interviewdate" value=<?php echo $interviewdate ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Canidate Name">
+            <input type="date" name="interviewdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Canidate Name">
         </div>
         
         <div class="form-group">
             <label for="candidateemail" class="label"> Interview Time </label>
-            <input type="time" name="interviewtime" value=<?php echo $interviewtime ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Canidate Name">
+            <input type="time" name="interviewtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Canidate Name">
         </div>
 
-        <button type="submit" class="btn btn-primary" id="updatebutton" name="updatecandidate"> Update Candidate </button>
+        <button type="submit" class="btn btn-primary" id="addcandidatebutton" name="addcandidate"> Add Candidate </button>
        
       </form>
     </div>
   </div>
 </section>
-
-<script>
+    
+      <script>
       let sidebar = document.querySelector(".sidebar");
       let sidebarBtn = document.querySelector(".sidebarBtn");
       sidebarBtn.onclick = function() {

@@ -19,8 +19,10 @@
 
         $email = mysqli_real_escape_string($con,$email);
         $password = mysqli_real_escape_string($con,$password);
+	
+		$verify = password_verify($password, $hashed_password);  
         
-        $result = mysqli_query($con,"SELECT email FROM admin WHERE email = '$email' and password = '$password'") or die('Error');
+        $result = mysqli_query($con,"SELECT email FROM admin WHERE email = '$email' and password = '$verify'") or die('Error');
         $count=mysqli_num_rows($result);
         if($count==1)
         {
@@ -48,7 +50,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Admin Login | Online Quiz System</title>
+		<title> Admin Login |JWA ONLINE QUESTIONNAIRE </title>
 		<link rel="stylesheet" href="scripts/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="scripts/ionicons/css/ionicons.min.css">
 		<link rel="stylesheet" href="css/form.css">

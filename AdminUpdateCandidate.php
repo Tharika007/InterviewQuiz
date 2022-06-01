@@ -70,7 +70,7 @@ include 'DBConnection.php';
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
      
-    <title> Update Candidate | JWA ONLINE QUESTIONNAIRE  </title>
+    <title> Edit Candidates | JWA ONLINE QUESTIONNAIRE </title>
 
      <style>
          
@@ -137,7 +137,7 @@ include 'DBConnection.php';
     
     <ul class="nav-links">
         <li>
-          <a href="#" class="active">
+          <a href="./AdminDashboard.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -149,37 +149,57 @@ include 'DBConnection.php';
           </a>
         </li>
         <li>
-          <a href="./Addcandidate.php">
+        <a href="./welcome.php">
+            <i class='bx bx-book-alt' ></i>
+            <span class="links_name"> Quiz </span>
+          </a>
+        </li>
+        <li>
+          <a href="dashboard.php?q=2">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name"> Scores </span>
+          </a>
+        </li>
+        <li>
+          <a href="./AdminAddcandidate.php">
             <i class='bx bx-user' ></i>
             <span class="links_name"> Add Candidates</span>
           </a>
         </li>
         <li>
-          <a href="./seecandidatedetails.php">
+          <a href="./AdminCandidatesDetails.php">
             <i class='bx bx-list-ol' ></i>
             <span class="links_name"> See Candidates</span>
           </a>
-        </li>
+</li>
         <li>
-          <a href="./welcome.php">
-            <i class='bx bx-category-alt' ></i>
-            <span class="links_name"> Quiz </span>      
+          <a href="./AddHR.php">
+            <i class='bx bx-plus' ></i>
+            <span class="links_name"> Add HRM Officer </span>
           </a>
         </li>
-        
         <li>
-          <a href="dashboard.php?q=2">
-            <i class='bx bx-line-chart' ></i>
-            <span class="links_name"> Scores </span>
+          <a href="./SeeHRM.php">
+            <i class='bx bx-book' ></i>
+            <span class="links_name"> See HRM Details </span>
           </a>
         </li>
-         
-        <li class="log_out">  
+            <!-- <li class="log_out">
+            <a href="#">
+              <i class='bx bx-log-out'></i>
+              <form action="./AdminLogin.php" method="POST">
+                <button type="submit" class="links_name" name="logoutbutton"  onclick="logoutalert()">Log out</button>
+              </form>
+              
+              </a>-->
+              <li class="log_out">  
           <a href="logout1.php?q=dashboard.php">
             <i class='bx bx-log-out' ></i>
             <span class="links_name"> Logout </span>
+      
           </a>
-        </li>        
+        </li>  
+        </li>
       </ul>
   </div>
         
@@ -187,12 +207,12 @@ include 'DBConnection.php';
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-         <span class="dashboard"> Update Candidates </span>
+         <span class="dashboard"> Edit Candidate </span>
       </div>
    
       <div class="profile-details">
         <i class='bx bx-user' ></i>
-        <span class="admin_name"> HRM </span>
+        <span class="admin_name"> Admin </span>
 
       </div>
     </nav>

@@ -45,9 +45,34 @@ include 'DBConnection.php';
 
     }
 }
+
+if(isset($_POST['addcandidate']))
+
+{
+    $pin = $_POST['pin'];
+    $candidatemail = $_POST['candidatemail'];
+
+    $sql2 = "INSERT INTO user (`email`, `password`) VALUES ('$candidatemail', '$pin')";
+
+    $result = mysqli_query($conn, $sql2);
+
+    if($result) 
+    {
+      echo '<script> alert("Data Saved"); </script>';
+      header('Location: seecandidatedetails.php');
+    }
+
+    else {
+
+     echo '<script> alert ("Data not Saved"); </script>';
+
+    }
+}
     CloseCon($conn);
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -66,7 +91,7 @@ include 'DBConnection.php';
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
      
-    <title> Add Candidates </title>
+    <title> Add Candidate | JWA ONLINE QUESTIONNAIRE </title>
 
      <style>
          
@@ -189,11 +214,11 @@ include 'DBConnection.php';
    
       <div class="profile-details">
         <i class='bx bx-user' ></i>
-        <span class="admin_name"> Admin </span>
+        <span class="admin_name"> HRM </span>
 
       </div>
     </nav>
-
+<br> <br> <br> <br>  
     <div class="home-content">
 
         <div class="form-box">

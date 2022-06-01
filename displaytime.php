@@ -8,9 +8,8 @@
 
     $differenceinseconds=$timesecond-$timefirst;
 
-    //echo gmdate("H:i:s", $differenceinseconds);
-
     $time_lapse=gmdate("H:i:s",$differenceinseconds); 
+
     if($time_lapse=='00:00:00')
     {  
     session_abort(
@@ -18,7 +17,7 @@
             $_SESSION['end_time'],
             $_SESSION['duration']
     );
-        echo '<script> alert("Data Saved"); </script>';
+        echo '<script> alert("Timeout."); </script>';
         header('Location: ThankyouPage.html');
     }
     else

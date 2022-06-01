@@ -13,7 +13,7 @@
     <link  rel="stylesheet" href="css/font.css">
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"  type="text/javascript"></script>
-     <title> Dashboard | JWA ONLINE QUESTIONNAIRE </title>
+     <title> Admin Dashboard | JWA ONLINE QUESTIONNAIRE </title>
 </head>
 
 <body>
@@ -48,13 +48,13 @@
           </a>
         </li>
         <li>
-          <a href="./Addcandidate.php">
+          <a href="./AdminAddcandidate.php">
             <i class='bx bx-user' ></i>
             <span class="links_name"> Add Candidates</span>
           </a>
         </li>
         <li>
-          <a href="./seecandidatedetails.php">
+          <a href="./AdminCandidatesDetails.php">
             <i class='bx bx-list-ol' ></i>
             <span class="links_name"> See Candidates</span>
           </a>
@@ -71,15 +71,22 @@
             <span class="links_name"> See HRM Details </span>
           </a>
         </li>
-        <li class="log_out">
+            <!-- <li class="log_out">
             <a href="#">
               <i class='bx bx-log-out'></i>
               <form action="./AdminLogin.php" method="POST">
                 <button type="submit" class="links_name" name="logoutbutton"  onclick="logoutalert()">Log out</button>
               </form>
-             
-              </a>
-          </li>
+              
+              </a>-->
+              <li class="log_out">  
+          <a href="logout1.php?q=dashboard.php">
+            <i class='bx bx-log-out' ></i>
+            <span class="links_name"> Logout </span>
+      
+          </a>
+        </li>  
+        </li>
       </ul>
   </div>
   <section class="home-section">
@@ -107,17 +114,17 @@
             {
                 echo ' <div class="overview-boxes">
                
-                <a href="./Addcandidate.php"> 
+                <a href="./AddHR.php"> 
                   <div class="box">
                     <div class="left-side">
-                      <div class="box-topic"> Add Candidates </div>
+                      <div class="box-topic"> Add HRM Officer </div>
                      </a>                        
                     </div>   
                   </div>
-                  <a href="./seecandidatedetails.php"> 
+                  <a href="./SeeHRM.php"> 
                   <div class="box">
                     <div class="left-side">
-                      <div class="box-topic"> See Candidates </div>
+                      <div class="box-topic"> See HRM Details </div>
                      </a>                        
                     </div>   
                   </div>

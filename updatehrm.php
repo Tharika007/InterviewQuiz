@@ -5,31 +5,30 @@ include 'DBConnection.php';
     $conn = OpenCon();
 
     $id = $_GET['updateid'];
-    $sql = "select * from `hrm` where id=$id";
+
+    $sql = "select * from `admin` where admin_id=$id";
     
     $result = mysqli_query($conn, $sql);
 
     $row= mysqli_fetch_assoc($result);
 
+    $hrmemail= $row['email'];
     $hrmname= $row['hrmname'];
-    $hrmemail= $row['hrmemail'];
-    $hrmpassword= $row['hrmpassword'];
-
+  
     if(isset($_POST['updatehrm'])) 
 
 {
+   
+    $hrmemail = $_POST['email'];
     $hrmname = $_POST['hrmname'];
-    $hrmemail = $_POST['hrmemail'];
-    $hrmpassword = $_POST['hrmpassword'];
 
-    $sql = "UPDATE hrm SET hrmname ='$hrmname', hrmemail='$hrmemail', hrmpassword = '$hrmpassword'
-    where id = '$id' ";
+    $sql = "UPDATE admin SET email='$hrmemail' , hrmname ='$hrmname' WHERE admin_id= '$id' ";
 
     $result = mysqli_query($conn, $sql);
 
     if($result) 
     {
-      echo '<script> alert("Data Updated"); </script>';
+      echo '<script> alert("Data Updated."); </script>';
       header('Location: SeeHRM.php');
     }
 
@@ -179,7 +178,7 @@ include 'DBConnection.php';
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-         <span class="dashboard"> Add Candidates </span>
+         <span class="dashboard"> Update HRM Officer </span>
       </div>
    
       <div class="profile-details">
@@ -197,17 +196,12 @@ include 'DBConnection.php';
 
         <div class="form-group">
           <label for="hrmname" class="label"> Name </label>
-          <input type="text" name="hrmname" value=<?php echo $hrmname ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">           
+          <input type="text" name="hrmname" value=<?php echo $hrmname ?> class="form-control" aria-describedby="emailHelp1" placeholder="Name">           
         </div>
      
         <div class="form-group">
           <label for="hrmemail" class="label"> Email</label>
-          <input type="email" name="hrmemail" value=<?php echo $hrmemail ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-        </div>
-
-        <div class="form-group">
-          <label for="hrmpassword" class="label"> Password </label>
-          <input type="text" name="hrmpassword" value=<?php echo $hrmpassword ?> class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+          <input type="email" name="email" value=<?php echo $hrmemail ?> class="form-control" aria-describedby="emailHelp" placeholder="Email">
         </div>
 
         <button type="submit" class="btn btn-primary" id="updatebutton" name="updatehrm"> Update HRM </button>
